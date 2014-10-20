@@ -52,9 +52,9 @@ Method        | Parameters                           | Returns              | De
 
 ## Events
 
-Event         | Description
----           | ---
-`onsomething` | Triggers when something happens.
+Event         | `.detail`                      | Description
+---           | ---                            | ---
+`transferred` | `{"package": detachedElement}` | Triggers when element gets transferred.
 
 
 ## Contributing

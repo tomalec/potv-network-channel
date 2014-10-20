@@ -122,7 +122,7 @@
                 setTimeout(function(){//remove after transition is done
                     channel.removeChild(operation);
                     // channel.disabled = channel.children.length == 0;
-                    channel.dispatchEvent( new CustomEvent("transfered", {detail:{"package": operation}}) );
+                    channel.dispatchEvent( new CustomEvent("transferred", {detail:{"package": operation}}) );
                 }, this.transitionTime * 1000);
                 return operation;
             },
