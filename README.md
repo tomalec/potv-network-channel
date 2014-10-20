@@ -38,15 +38,15 @@ Or [download as ZIP](https://github.com/tomalec/potv-network-channel/archive/gh-
 
 ## Options
 
-Attribute     | Options     | Default      | Description
----           | ---         | ---          | ---
-`foo`         | *string*    | `bar`        | Lorem ipsum dolor.
+Attribute     | Options            | Default      | Description
+---           | ---                | ---          | ---
+`direction`   | `"up"` \| `"down"` | `down`       | Direction of packages flow
 
 ## Methods
 
-Method        | Parameters   | Returns     | Description
----           | ---          | ---         | ---
-`unicorn()`   | None.        | Nothing.    | Magic stuff appears.
+Method        | Parameters                           | Returns              | Description
+---           | ---                                  | ---                  | ---
+`transfer()`  |   *{String}* **index** (_default_ 0) | "Transfered" Element | Transfers child element of given index.
 
 ## Events
 

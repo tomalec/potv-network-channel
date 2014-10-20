@@ -3,6 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>&lt;potv-network-channel&gt;</title>
+    <link rel="stylesheet" href="http://juicy.github.io/github-markdown-css/github-markdown.css">
+    <style>
+    .packet{
+    	display: block;
+		width: 24px;
+		height: 24px;
+		border-radius: 12px;
+		-moz-border-radius: 12px;
+		-webkit-border-radius: 12px;
+		margin:2px auto;
+		text-align: center;
+		color: white;
+
+		background: #ca1171;
+    }
+    potv-network-channel{
+    	min-height: 150px;
+    	min-width: 10em;
+    }
+    </style>
 
     <!-- Importing Web Component's Polyfill -->
     <script src="../platform/platform.js"></script>
@@ -10,10 +30,35 @@
     <!-- Importing Custom Elements -->
     <link rel="import" href="src/potv-network-channel.html">
 </head>
-<body>
+<body class="markdown-body">
 
     <!-- Using Custom Elements -->
-    <potv-network-channel></potv-network-channel>
+    <dl>
+    	<dt><code>&lt;potv-network-channel&gt;</code></dt>
+    	<dd>
+    		<potv-network-channel>
+    			<span class="packet" title="Packet">1</span>
+    			<span class="packet" title="Packet">2</span>
+    			<button style="width: 10em">I could be any HTML Element!</button>
+    		</potv-network-channel>
+    	</dd>
+    	<dt><code>&lt;potv-network-channel direction="up"&gt;</code></dt>
+    	<dd>
+    		<potv-network-channel direction="up">
+    			<span class="packet" title="Packet">1</span>
+    			<span class="packet" title="Packet">2</span>
 
+    		</potv-network-channel>
+    	</dd>
+    	<dt><code>&lt;potv-network-channel direction="down"&gt;</code></dt>
+    	<dd>
+    		<potv-network-channel direction="down" style="width: 400px;">
+    			<span class="packet" title="Packet">1</span>
+    			<iframe width="350" height="260" src="//www.youtube.com/embed/SPlQpGeTbIE" frameborder="0" allowfullscreen></iframe>
+    			<textarea style="width:350px; height: 4em;">potv-network-channel behaves like regular block element - grows vertically according to CSS rules</textarea>
+    			<span class="packet" title="Packet">4</span>
+    		</potv-network-channel>
+    	</dd>
+    </dl>
 </body>
 </html>
