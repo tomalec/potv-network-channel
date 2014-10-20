@@ -1,7 +1,7 @@
 {
     "name": "potv-network-channel",
     "version": "0.0.0",
-    "description": "Polymer Custom Element representing network channel (incoming/outgoing packages) in Puppet Operational Transformation communication Visualization",
+    "description": "Polymer Custom Element to visualize networking of packages.",
     "license": "MIT",
     "main": "src/potv-network-channel.html",
     "keywords": [

@@ -1,6 +1,8 @@
 # &lt;potv-network-channel&gt;
 
-> Polymer Custom Element representing network channel (incoming/outgoing packages) in Puppet Operational Transformation communication Visualization
+> is a Polymer Custom Element to visualize networking of packages.
+	 	Package could be represented by any HTML Element. `<potv-network-channel>` aligns them in a line, shows a button, and gives API to `.transfer(elementIndex)` the element over the wire. 
+	 	Transfer method, and `transferred` DOM Event gives the pointer to transferred (detached from DOM) Element co it could be appended to another `<potv-network-channel>`.
 
 ## Demo
 
