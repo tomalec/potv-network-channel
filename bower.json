@@ -1,0 +1,24 @@
+{
+    "name": "potv-network-channel",
+    "version": "0.0.0",
+    "description": "Polymer Custom Element representing network channel (incoming/outgoing packages) in Puppet Operational Transformation communication Visualization",
+    "license": "MIT",
+    "main": "src/potv-network-channel.html",
+    "keywords": [
+        "polymer",
+        "web-components",
+        "juicy"
+    ],
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "preview.png"
+    ],
+    "dependencies": {
+        "polymer": "Polymer/polymer#^0.4.0"
+    },
+    "authors": [
+        "Tomek Wytrebowicz <tomalecpub@gmail.com>"
+    ]
+}
