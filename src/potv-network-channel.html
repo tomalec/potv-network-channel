@@ -20,12 +20,12 @@
         position: relative;
         height: 100%;
         width: 100%;
-        overflow: hidden;
      }
      #wireTube{
         width:100%;
         height:100%;
         position:absolute;
+        z-index: -1;
      }
      #wire{
         border-left: 3px dashed #daedef;
@@ -74,7 +74,6 @@
         transition: all 0.5s ease-in-out;
         -moz-transition: all 0.5s ease-in-out;
         -webkit-transition: all 0.5s ease-in-out;
-        position: relative;
      }
     </style>
     <div id="network-channel" class="{{direction}}">
@@ -106,6 +105,7 @@
                 if(!operation){ 
                     return false;
                 }
+                this.$["network-channel"].style.overflow = "hidden";
                 if(this.direction == "up"){
                     operation.style.top = operation.style.top || 0 + "px";
                     // operation.style.position = "relative";
@@ -120,6 +120,7 @@
                 var channel = this;
                 setTimeout(function(){//remove after transition is done
                     channel.removeChild(operation);
+                    this.$["network-channel"].style.overflow = "visible";
                     // channel.disabled = channel.children.length == 0;
                     channel.dispatchEvent( new CustomEvent("transferred", {detail:{"package": operation}}) );
                 }, this.transitionTime * 1000);
