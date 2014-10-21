@@ -12,7 +12,7 @@
 		border-radius: 12px;
 		-moz-border-radius: 12px;
 		-webkit-border-radius: 12px;
-		margin:2px auto;
+		margin:2px;
 		text-align: center;
 		color: white;
 
@@ -21,6 +21,11 @@
     potv-network-channel{
     	min-height: 150px;
     	min-width: 10em;
+    }
+    potv-network-channel[direction=left],
+    potv-network-channel[direction=right]{
+    	min-width: 150px;
+    	min-height: 50px;
     }
     </style>
 
@@ -67,6 +72,22 @@
     			<iframe width="350" height="260" src="//www.youtube.com/embed/SPlQpGeTbIE" frameborder="0" allowfullscreen></iframe>
     			<textarea style="width:350px; height: 4em;">potv-network-channel behaves like regular block element - grows vertically according to CSS rules</textarea>
     			<span class="packet" title="Packet">4</span>
+    		</potv-network-channel>
+    	</dd>
+    	<dt><code>&lt;potv-network-channel direction="left"&gt;</code></dt>
+    	<dd>
+    		<potv-network-channel direction="left">
+    			<span class="packet" title="Packet">1</span>
+    			<span class="packet" title="Packet">2</span>
+
+    		</potv-network-channel>
+    	</dd>
+    	<dt><code>&lt;potv-network-channel direction="right"&gt;</code></dt>
+    	<dd>
+    		<potv-network-channel direction="right">
+    			<span class="packet" title="Packet">1</span>
+    			<span class="packet" title="Packet">2</span>
+
     		</potv-network-channel>
     	</dd>
     </dl>

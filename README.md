@@ -42,7 +42,7 @@ Or [download as ZIP](https://github.com/tomalec/potv-network-channel/archive/gh-
 
 Attribute     | Options            | Default      | Description
 ---           | ---                | ---          | ---
-`direction`   | `"up"` \| `"down"` | `down`       | Direction of packages flow
+`direction`   | `"up"` \| `"down"` \ | `"left"` \| `"right"` | `down`       | Direction of packages flow
 
 ## Methods
 
