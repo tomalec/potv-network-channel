@@ -5,21 +5,17 @@
 <link rel="import" href="../../polymer/polymer.html">
 
 <!-- Define your custom element -->
-<polymer-element name="potv-network-channel" attributes="direction">
+<polymer-element name="potv-network-channel" attributes="direction transferOnClick">
 <template>
     <style>
      :host{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
+        display: block;
         width: 50px;
      }
          :host([direction=left],[direction=right]){
-            flex-direction: row;
-            height: 50px;
+            min-height: 50px;
          }
      #network-channel{
-        flex:1;
         display: flex;
         position: relative;
         height: 100%;
@@ -130,42 +126,53 @@
 </template>
 
     <script>
+    (function(){
         Polymer('potv-network-channel', {
             /** {Number} transition time in seconds */
             arrows: {up: '↑', down: '↓', left: '←', right: '→'},
             direction: "down",
             transitionTime: 0.5,
             disabled: true,
-            transfer: function( index ){
-                index = index || 0;
-                if( index && index.preventDefault){ // index is event
-                    index.preventDefault();
-                    index = 0;
-                }
+            /**
+             * Transfer Element over the wire.
+             * @param  {Number | Element} [index_or_child=0] index, or child element itself to be transfered
+             * @return {Element}       transfered (detached) element
+             */
+            transfer: function( index_or_child ){
                 var operation;
-                operation = this.children[index];
+                index_or_child = index_or_child || 0;
+                if( typeof index_or_child == "number"){
+                    operation = this.children[ index_or_child ];                    
+                } else if( index_or_child.preventDefault){ // index_or_child is event
+                    index_or_child.preventDefault();
+                    operation = this.children[0];
+                } else {
+                    operation = index_or_child;
+                }
                 if(!operation){ 
                     return false;
                 }
                 this.$["network-channel"].style.overflow = "hidden";
+                var oryginal_top = operation.style.top;
+                var oryginal_left = operation.style.left;
                 switch(this.direction){
                     case "up":
-                        operation.style.top = operation.style.top || 0 + "px";
+                        operation.style.top = oryginal_top || 0 + "px";
                         // operation.style.position = "relative";
                         operation.style.top = (-operation.offsetTop -operation.offsetHeight) + "px";
                         break;
                     case "down":
-                        operation.style.top = operation.style.top || 0 + "px";
+                        operation.style.top = oryginal_top || 0 + "px";
                         // operation.style.position = "relative";
                         operation.style.top = (this.offsetHeight - operation.offsetTop) + "px";
                         break;
                     case "left":
-                        operation.style.left = operation.style.left || 0 + "px";
+                        operation.style.left = oryginal_left || 0 + "px";
                         // operation.style.position = "relative";
                         operation.style.left = (-operation.offsetLeft -operation.offsetWidth) + "px";
                         break;
                     case "right":
-                        operation.style.left = operation.style.left || 0 + "px";
+                        operation.style.left = oryginal_left || 0 + "px";
                         // operation.style.position = "relative";
                         operation.style.left = (this.offsetWidth - operation.offsetLeft) + "px";
                         break;
@@ -176,6 +183,9 @@
                 setTimeout(function(){//remove after transition is done
                     channel.removeChild(operation);
                     channel.$["network-channel"].style.overflow = "visible";
+                    // revert to oryginal top,left
+                    operation.style.top = oryginal_top;
+                    operation.style.left = oryginal_left;
                     // channel.disabled = channel.children.length == 0;
                     channel.dispatchEvent( new CustomEvent("transferred", {detail:{"package": operation}}) );
                 }, this.transitionTime * 1000);
@@ -193,6 +203,11 @@
                 observer.observe(this, { childList: true });
             }
         });
+
+        function triggerTransfer(){
+            
+        }
+}());
     </script>
 
 </polymer-element>
